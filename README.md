@@ -8,6 +8,14 @@ the coverage report your test run already produced (LCOV or Istanbul
 No network calls, no account, no dependencies. It works with jest, vitest, nyc,
 and c8, anything that can emit `lcov.info` or `coverage-summary.json`.
 
+## Install
+
+```bash
+npm install -g taskbounty-coverage-gate
+```
+
+Or run it without installing via `npx` (shown below).
+
 ## CLI
 
 ```bash
