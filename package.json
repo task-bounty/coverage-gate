@@ -1,6 +1,6 @@
 {
   "name": "taskbounty-coverage-gate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zero-dependency coverage gate: read your existing LCOV or json-summary report, show the gap to a target (default 80%) and the lowest-covered files, and fail CI when below target.",
   "type": "module",
   "bin": {
