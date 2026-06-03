@@ -1,0 +1,31 @@
+name: "TaskBounty Coverage Gate"
+description: "Report line coverage, the gap to a target (default 80%), and the lowest-covered files, and fail CI when below target. Zero dependencies."
+branding:
+  icon: "shield"
+  color: "blue"
+inputs:
+  report:
+    description: "Path to an LCOV (lcov.info) or Istanbul json-summary (coverage-summary.json) report. Auto-detected if omitted."
+    required: false
+    default: ""
+  min:
+    description: "Target line coverage percentage."
+    required: false
+    default: "80"
+  top:
+    description: "How many lowest-covered files to list."
+    required: false
+    default: "5"
+  fail-under:
+    description: "Fail the job when coverage is below the target. Set to 'false' to report only."
+    required: false
+    default: "true"
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+        ARGS="--min ${{ inputs.min }} --top ${{ inputs.top }}"
+        if [ -n "${{ inputs.report }}" ]; then ARGS="$ARGS --report ${{ inputs.report }}"; fi
+        if [ "${{ inputs.fail-under }}" = "false" ]; then ARGS="$ARGS --no-fail"; fi
+        node "${{ github.action_path }}/src/index.mjs" $ARGS

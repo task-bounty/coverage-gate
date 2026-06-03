@@ -1,0 +1,34 @@
+{
+  "name": "taskbounty-coverage-gate",
+  "version": "0.1.0",
+  "description": "Zero-dependency coverage gate: read your existing LCOV or json-summary report, show the gap to a target (default 80%) and the lowest-covered files, and fail CI when below target.",
+  "type": "module",
+  "bin": {
+    "taskbounty-coverage-gate": "src/index.mjs"
+  },
+  "exports": {
+    "./parse": "./src/parse.mjs"
+  },
+  "files": [
+    "src",
+    "action.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "coverage",
+    "code-coverage",
+    "test-coverage",
+    "lcov",
+    "ci",
+    "coverage-gate",
+    "github-action"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.task-bounty.com/coverage-check",
+  "engines": {
+    "node": ">=18"
+  }
+}
